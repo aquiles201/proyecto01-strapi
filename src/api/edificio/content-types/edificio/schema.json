@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edificios",
+  "info": {
+    "singularName": "edificio",
+    "pluralName": "edificios",
+    "displayName": "Edificio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "Direccion": {
+      "type": "string"
+    },
+    "departamentos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::departamento.departamento"
+    }
+  }
+}

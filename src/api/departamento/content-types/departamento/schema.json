@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "departamentos",
+  "info": {
+    "singularName": "departamento",
+    "pluralName": "departamentos",
+    "displayName": "Departamento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Numero": {
+      "type": "string"
+    },
+    "Propietario": {
+      "type": "string"
+    }
+  }
+}

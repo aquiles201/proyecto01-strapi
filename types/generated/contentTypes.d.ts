@@ -362,37 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiRestaurante1Restaurante1 extends Schema.CollectionType {
-  collectionName: 'restaurantes1';
-  info: {
-    singularName: 'restaurante1';
-    pluralName: 'restaurantes1';
-    displayName: 'Restaurante';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Nombre: Attribute.String & Attribute.Required & Attribute.Unique;
-    Contenido: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::restaurante1.restaurante1',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::restaurante1.restaurante1',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -812,6 +781,105 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiDepartamentoDepartamento extends Schema.CollectionType {
+  collectionName: 'departamentos';
+  info: {
+    singularName: 'departamento';
+    pluralName: 'departamentos';
+    displayName: 'Departamento';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Numero: Attribute.String;
+    Propietario: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::departamento.departamento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::departamento.departamento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEdificioEdificio extends Schema.CollectionType {
+  collectionName: 'edificios';
+  info: {
+    singularName: 'edificio';
+    pluralName: 'edificios';
+    displayName: 'Edificio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String;
+    Direccion: Attribute.String;
+    departamentos: Attribute.Relation<
+      'api::edificio.edificio',
+      'oneToMany',
+      'api::departamento.departamento'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::edificio.edificio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::edificio.edificio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRestaurante1Restaurante1 extends Schema.CollectionType {
+  collectionName: 'restaurantes1';
+  info: {
+    singularName: 'restaurante1';
+    pluralName: 'restaurantes1';
+    displayName: 'Restaurante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String & Attribute.Required & Attribute.Unique;
+    Contenido: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restaurante1.restaurante1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restaurante1.restaurante1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -822,7 +890,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::restaurante1.restaurante1': ApiRestaurante1Restaurante1;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -831,6 +898,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::departamento.departamento': ApiDepartamentoDepartamento;
+      'api::edificio.edificio': ApiEdificioEdificio;
+      'api::restaurante1.restaurante1': ApiRestaurante1Restaurante1;
     }
   }
 }

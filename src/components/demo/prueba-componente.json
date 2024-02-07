@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_demo_prueba_componentes",
+  "info": {
+    "displayName": "PruebaComponente",
+    "icon": "key"
+  },
+  "options": {},
+  "attributes": {
+    "IDTO": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Nombre": {
+      "type": "string"
+    }
+  }
+}
