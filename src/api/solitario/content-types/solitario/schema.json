@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "solitarios",
+  "info": {
+    "singularName": "solitario",
+    "pluralName": "solitarios",
+    "displayName": "Solitario"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Apellido": {
+      "type": "string"
+    }
+  }
+}

@@ -880,6 +880,37 @@ export interface ApiRestaurante1Restaurante1 extends Schema.CollectionType {
   };
 }
 
+export interface ApiSolitarioSolitario extends Schema.SingleType {
+  collectionName: 'solitarios';
+  info: {
+    singularName: 'solitario';
+    pluralName: 'solitarios';
+    displayName: 'Solitario';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nombre: Attribute.String & Attribute.Required & Attribute.Unique;
+    Apellido: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::solitario.solitario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::solitario.solitario',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -901,6 +932,7 @@ declare module '@strapi/types' {
       'api::departamento.departamento': ApiDepartamentoDepartamento;
       'api::edificio.edificio': ApiEdificioEdificio;
       'api::restaurante1.restaurante1': ApiRestaurante1Restaurante1;
+      'api::solitario.solitario': ApiSolitarioSolitario;
     }
   }
 }
