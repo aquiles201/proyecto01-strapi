@@ -4,7 +4,8 @@
   "info": {
     "singularName": "restaurante1",
     "pluralName": "restaurantes1",
-    "displayName": "Restaurante"
+    "displayName": "Restaurante",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,11 @@
     },
     "Contenido": {
       "type": "blocks"
+    },
+    "AtributoComponenteSing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "demo.prueba-componente"
     }
   }
 }

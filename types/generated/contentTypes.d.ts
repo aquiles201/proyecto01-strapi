@@ -855,6 +855,7 @@ export interface ApiRestaurante1Restaurante1 extends Schema.CollectionType {
     singularName: 'restaurante1';
     pluralName: 'restaurantes1';
     displayName: 'Restaurante';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -862,6 +863,7 @@ export interface ApiRestaurante1Restaurante1 extends Schema.CollectionType {
   attributes: {
     Nombre: Attribute.String & Attribute.Required & Attribute.Unique;
     Contenido: Attribute.Blocks;
+    AtributoComponenteSing: Attribute.Component<'demo.prueba-componente'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
